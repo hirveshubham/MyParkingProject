@@ -1,0 +1,125 @@
+<html xmlns:th ="http://www.thymeleaf.org">
+  <head>
+    <title>User Dash Board</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      
+      
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+ 
+  <body>
+    
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">UserDashBoard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/userHomePage}">Home</a>
+          </li>     
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/viewProviderForBooking}">Check Availability</a>
+          </li>  
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/viewUserBooking}">Booking History</a>
+          </li> 
+           <li class="nav-item">
+            <a class="nav-link" th:href="@{/slotPage}">slots</a>
+          </li> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+       <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/viewUserProfile}">View Profile</a>
+          </li>
+          <li class="nav-item dropdown ms-auto">
+            <a th:href="@{/userlogout}" class="nav-link">Logout</a>
+        </li>
+    </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="vh-100 bg-light">
+  <div class="container py-5 h-100 ">
+ 
+ 
+    <div class="row d-flex align-items-center justify-content-center h-100">
+    
+ <div class="container">
+       <div class="fixed-div">
+       	  <h3 class="mb-3 text-uppercase" style="color:black; text-weight:bold; border:5px solid darkgreen; 
+       	  padding:10px; text-align:center; ">My Bookings</h3>
+       </div>
+        <table class="table">
+            <thead>
+                 <tr>
+		            <th>ID</th>
+		            <th>First Name</th>
+		            <th>Last Name</th>
+		            <th>Parking Name</th>
+		            <th>Vehicle Type</th>
+		            <th>Vehicle Number</th>
+		            <th>Selected Slot</th>
+		            <th>From Booking Date</th>
+		            <th>To Booking Date</th>
+		            <th>From Time</th>
+		            <th>To Time</th>
+		            <th>Mobile No.</th>
+		            <th>Action</th>
+		        </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${Bookings}">
+                    <td th:text="${book.bookingId}"></td>
+                    <td th:text="${book.firstName}"></td>
+                    <td th:text="${book.lastName}"></td>
+                    <td th:text="${book.parkingName}"></td>
+                    <td th:text="${book.vehicleType}"></td>
+                    <td th:text="${book.vehicleNumber}"></td>
+                    <td th:text="${book.selectSlot}"></td>
+                    <td th:text="${book.fromBookingDate}"></td>
+                    <td th:text="${book.toBookingDate}"></td>
+                    <td th:text="${book.fromTime}"></td>
+                    <td th:text="${book.toTime}"></td>
+                    <td th:text="${book.phoneNumber}"></td>
+                    <td>
+                        <a th:href="@{/deleteUserBooking/{bid}(bid=${book.bookingId})}" class="btn btn-danger">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html lang="en">
+  <head>
+    <title>Admin Dash Board</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+ 
+  <body>
+ <header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AdminDashBoard</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/adminHome}" >Home</a>
+          </li>
+           <li class="nav-item dropdown ms-auto">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ManageProvider</a>
+            <div class="dropdown-menu dropdown-menu-end">
+                <a th:href="@{/addProvider}" class="dropdown-item">Add Provider</a>
+                <a th:href="@{/viewProviders}" class="dropdown-item">View Provider</a>  
+            </div>
+        </li>          
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/bookings}">Bookings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/viewUsers}">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/addAdminpage}">Add Admin</a>
+          </li>   
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+       <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/adminProfile}">My Profile</a>
+          </li>
+          <li class="nav-item dropdown ms-auto">
+            <a th:href="@{/userlogout}" class="nav-link dropdown-toggle">Logout</a>
+        </li>
+    </ul>       
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="vh-100 bg-light">
+  <div class="container py-5 h-100 ">
+ 
+ 
+    <div class="row d-flex align-items-center justify-content-center h-100">
+    
+ <div class="container">
+       <div class="fixed-div">
+       	  <h3 class="mb-3 text-uppercase" style="color:black; text-weight:bold; border:5px solid darkgreen; 
+       	  padding:10px; text-align:center; margin-top:-200px;">User List</h3>
+       </div>
+        <table class="table">
+            <thead>
+                 <tr>
+		            <th>ID</th>
+		            <th>First Name</th>
+		            <th>Last Name</th>
+		            <th>Gender</th>
+		            <th>Email Id</th>
+		            <th>Aadhar Number</th>	
+		            <th>Action</th>            
+		        </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${ViewUserList}">
+                    <td th:text="${user.userId}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.gender}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.aadharNumber}"></td>               
+                    <td>
+                        <a th:href="@{/deleteUser/{id}(id=${user.userId})}" class="btn btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</section>
+</body>
+</html>

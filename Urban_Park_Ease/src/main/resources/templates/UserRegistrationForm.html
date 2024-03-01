@@ -1,0 +1,132 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel = "stylesheet" href="../static/css/registration.css"/>
+</head>
+<body>
+
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-0">
+          <div class="row g-0">
+            <div class="col-sm-6 d-none d-sm-block" style="max-height:630px;">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height:500px; width:500px;" />
+            </div>
+            
+            
+            <div class="col-sm-6" >
+              <div class="card-body p-md-4 text-black">
+                <h3 class="mb-3 text-uppercase">User registration form</h3>
+                
+                 <form th:action="@{/UserRegistrationdata}" th:object="${UserRegform}" method="post">
+                 
+                <div class="row">
+                  <div class="col-md-6 mb-2">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1m" class="form-control form-control-sm" placeholder="First name" th:field ="*{firstName}"/>
+                      <!-- <label class="form-label" for="form3Example1m">First name</label> -->
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-2">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n" class="form-control form-control-sm" placeholder="Last name" th:field ="*{lastName}" />
+                      <!-- <label class="form-label" for="form3Example1n">Last name</label> -->
+                    </div>
+                  </div>
+                </div>
+
+          
+                
+                  <div class="form-outline mb-2">
+       
+                  <!-- <label class="form-label" for="form3Example97">Gender</label> -->
+                  
+                  
+                  <div class="form-outline mb-2">
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="Female" th:field="*{gender}" />
+    <label class="form-check-label" for="femaleGender">Female</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="maleGender" value="Male" th:field="*{gender}" />
+    <label class="form-check-label" for="maleGender">Male</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="otherGender" value="Other" th:field="*{gender}" />
+    <label class="form-check-label" for="otherGender">Other</label>
+  </div>
+</div>
+                  
+                  
+                </div>
+                
+               
+                
+                <div class="form-outline mb-2">
+                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Email ID" th:field ="*{email}"/>
+                  <!-- <label class="form-label" for="form3Example97">Email ID</label> -->
+                </div>
+                
+                <div class="form-outline mb-2">
+                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="Password" th:field ="*{password}"/>
+                  <!-- <label class="form-label" for="form3Example99">Password</label> -->
+                </div>
+
+              
+
+                <div class="form-outline mb-2">
+                  <input type="text" id="form3Example9" class="form-control form-control-sm" placeholder="DOB" th:field ="*{dob}"/>
+                  <!-- <label class="form-label" for="form3Example9">DOB</label> -->
+                </div>
+
+				<div class="form-outline mb-2">
+                  <input type="text" id="form3Example8" class="form-control form-control-sm" placeholder="Address" th:field ="*{address}"/>
+                <!--   <label class="form-label" for="form3Example8">Address</label> -->
+                </div>
+                
+                 <div class="form-outline mb-2">
+                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="State" th:field ="*{state}"/>
+                  <!-- <label class="form-label" for="form3Example99">State </label> -->
+                </div>
+                
+                  <div class="form-outline mb-2">
+                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="City" th:field ="*{city}"/>
+                  <!-- <label class="form-label" for="form3Example99">city </label> -->
+                </div>
+                
+                
+                <div class="form-outline mb-2">
+                  <input type="text" id="form3Example90" class="form-control form-control-sm" placeholder="Pin:code" th:field ="*{pincode}"/>
+                  <!-- <label class="form-label" for="form3Example90">Pin code</label> -->
+                </div>
+
+                <div class="form-outline mb-2">
+                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Aadhar No." th:field ="*{aadharNumber}"/>
+              <!--     <label class="form-label" for="form3Example97">Aadhar No.</label> -->
+                </div>
+                
+				
+                <div class="d-flex justify-content-end pt-3">
+                  <button type="submit" class="btn btn-warning btn-m ms-2">Submit form</button>
+                </div>
+				</form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

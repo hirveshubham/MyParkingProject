@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Admin Dash Board</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AdminDashBoard</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/adminHome}" >Home</a>
+          </li>
+           <li class="nav-item dropdown ms-auto">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ManageProvider</a>
+            <div class="dropdown-menu dropdown-menu-end">
+                <a th:href="@{/addProvider}" class="dropdown-item">Add Provider</a>
+                <a th:href="@{/viewProviders}" class="dropdown-item">View Provider</a>  
+            </div>
+        </li>          
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/bookings}">Bookings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/viewUsers}">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/addAdminpage}">Add Admin</a>
+          </li>   
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+       <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/adminProfile}">My Profile</a>
+          </li>
+          <li class="nav-item dropdown ms-auto">
+            <a th:href="@{/userlogout}" class="nav-link dropdown-toggle">Logout</a>
+        </li>
+    </ul>       
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-0">
+          <div class="row g-0">
+            <div class="col-sm-6 d-none d-sm-block" style="max-height:630px;">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height:500px; width:500px;" />
+            </div>
+            
+            
+            <div class="col-sm-6" >
+              <div class="card-body p-md-4 text-black">
+                <h3 class="mb-3 text-uppercase">Admin registration form</h3>
+                
+                 <form th:action="@{/AdminRegistration}" th:object="${AdminRegdata}" method="post">
+                 
+                <div class="row">
+                  <div class="col-md-6 mb-2">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1m" class="form-control form-control-sm" placeholder="First name" th:field ="*{firstName}"/>
+                      <!-- <label class="form-label" for="form3Example1m">First name</label> -->
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-2">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n" class="form-control form-control-sm" placeholder="Last name" th:field ="*{lastName}" />
+                      <!-- <label class="form-label" for="form3Example1n">Last name</label> -->
+                    </div>
+                  </div>
+                </div>
+
+          
+                
+                  <div class="form-outline mb-2">
+                 <!--  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Gender" th:field ="*{gender}"/>
+                  <label class="form-label" for="form3Example97">Gender</label> -->
+                  
+                  
+                  <div class="form-outline mb-2">
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="Female" th:field="*{gender}" />
+    <label class="form-check-label" for="femaleGender">Female</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="maleGender" value="Male" th:field="*{gender}" />
+    <label class="form-check-label" for="maleGender">Male</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="otherGender" value="Other" th:field="*{gender}" />
+    <label class="form-check-label" for="otherGender">Other</label>
+  </div>
+</div>
+                  
+                  
+                </div>
+
+                <div class="form-outline mb-2">
+                  <input type="email" id="form3Example97" class="form-control form-control-sm" placeholder="Email ID" th:field ="*{email}"/>
+                  <!-- <label class="form-label" for="form3Example97">Email ID</label> -->
+                </div>
+                
+                <div class="form-outline mb-2">
+                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="Password" th:field ="*{password}"/>
+                  <!-- <label class="form-label" for="form3Example99">Password</label> -->
+                </div>
+
+	
+                <div class="d-flex justify-content-end pt-3">
+                  <button type="submit" class="btn btn-warning btn-m ms-2">Submit form</button>
+                </div>
+				</form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+</html>

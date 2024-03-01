@@ -1,0 +1,487 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.84.0">
+<title>Urban Park Areas</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem; 
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  #c-time {
+    color: white;
+    margin: auto;
+  }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  body {
+    margin-top: 0; /* Remove default margin */
+    padding-top: 0; /* Remove default padding */
+  }
+</style>
+<style>
+  body {
+    background-color: white;
+    padding: 0;
+  }
+  .carousel-inner img {
+    height: calc(100vh - 56px); /* Adjust based on your navbar height */
+    object-fit: cover;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: calc(50% - 28px); /* Adjust based on your navbar height */
+  }
+</style>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .contact-person {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .contact-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+  }
+
+  .contact-info p {
+    margin-bottom: 5px;
+  }
+
+  .social-links {
+    margin-top: 10px;
+  }
+
+  .social-links a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    text-decoration: none;
+  }
+
+  /* New styles for horizontal layout */
+  .contact-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .contact-card {
+    flex-basis: calc(20% - 20px);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+</style>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .contact-person {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .contact-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  .contact-avatar img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+  }
+
+  .contact-info p {
+    margin-bottom: 10px;
+  }
+
+  .social-links {
+    margin-top: 10px;
+  }
+
+  .social-links a {
+    display: inline-block;
+    width: 90px;
+    height: 25px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 0%;
+    margin-right: 5px;
+    text-decoration: none;
+  }
+
+  /* New styles for horizontal layout */
+  .contact-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .contact-card {
+    flex-basis: calc(50% - 50px);
+    text-align: center;
+  }
+  
+  
+</style>
+<style>
+  .main-points {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+        <img th:src="@{/images/logo1.png}" alt="Example Image" width="180px" height="50px">
+      <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;PARKwithEASE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#AboutUs">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ContactUs">Contact us</a>
+          </li>  
+          <div class="nav-item" id="c-time"></div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/userreg}">Sign Up</a>
+          </li>
+          <li class="nav-item dropdown ms-auto">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a th:href="@{/userlogin}" class="dropdown-item">Login as User</a>
+              <a th:href="@{/adminloginpage}" class="dropdown-item">Login as Admin</a>  
+            </div>
+          </li>
+        </ul>       
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1604063155785-ee4488b8ad15?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Camera"/>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Welcome To Urban Park Ease! </h1>
+            <p> We have safe parking space for your vechicle as per your need.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1607286966263-af9fed5a735c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Camera"/>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1> "Secure Your Spot, Anytime, Anywhere": <br>Reserve Your Parking Space Ahead of Time!	 </h1>
+            <p>Big Cars to Bikes, We've Got You Covered,Be at Ease.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://plus.unsplash.com/premium_photo-1661934344726-6bc1a604575b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Camera"/>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>"Navigate the Urban Jungle with Ease: Rent Your Space, Find Your Spot!"</h1>
+            <p>Park Space Provider we will help you to monetize the space and Users we got covered with safest place.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Marketing messaging and featurettes -->
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <!-- START THE FEATURETTES -->
+    <hr class="featurette-divider">
+    <div class="row featurette" id="AboutUs">
+      <div class="col-md-7">
+        <h2 class="featurette-heading"> <br > Welcome to Urban Park Ease,<br>  <span class="text-muted"> your hassle-free solution to urban parking challenges! </span></h2>
+        <p class="lead"> <br> &nbsp &nbsp At Urban Park Ease, we understand the daily struggle of finding parking spaces in bustling cities. That's why we've created a convenient platform that allows you to book parking spaces in advance, tailored to your preferences.<br>
+&nbsp;&nbsp;Whether you're Exploring the city for a day or have a regular commute, our user-friendly interface makes it effortless to secure parking at your desired location, date, and time. Say goodbye to circling the block endlessly in search of a spot – with Urban Park Ease, your parking worries are a thing of the past.<br>
+&nbsp;&nbsp;For parking space providers, Urban Park Ease offers a seamless way to monetize unused spaces. Simply register your parking spots on our platform, and let users book them according to their needs. It's a win-win for both drivers and providers, making urban parking more efficient and accessible for everyone.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Join Urban Park Ease today and experience the ease of stress-free parking!
+</p>
+      </div>
+      <div class="col-md-5">
+         <img src="https://plus.unsplash.com/premium_photo-1683568217024-c2fddf53ce6a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="1000" height="1200" alt="Urban Park Ease Image">
+
+      </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette" id="Services">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading"> <u>Serivces offered</u> <span class="text-muted"> </span></h2>
+        <p class="lead">
+		<br>
+<p class="main-points"><strong>1.</strong> <u>Parking Space Booking:</u> Allow users to easily search for available parking spaces based on location, date, and time, and book them in advance.</p>
+<p class="main-points"><strong>2.</strong> <u>Real-time Availability:</u> Provide real-time updates on parking space availability to ensure users can make informed decisions.</p>
+<p class="main-points"><strong>3.</strong> <u>Flexible Booking Options:</u> Offer flexible booking options for hourly, daily, weekly, or monthly rentals to accommodate different user needs.</p>
+<p class="main-points"><strong>4.</strong> <u>Payment Processing: </u>Facilitate secure online payments for parking reservations, ensuring a seamless transaction experience for users.</p>
+<p class="main-points"><strong>5.</strong> <u>User Accounts:</u>Allow users to create accounts to manage their bookings, view past reservations, and save favourite parking locations for future reference.</p>
+<p class="main-points"><strong>6.</strong> <u>Parking Space Listings: </u>Provide a platform for parking space owners to list their available spaces for rent, with options to set pricing, availability schedules, and additional amenities.</p>
+<p class="main-points"><strong>7.</strong> <u>Booking Management for Space Owners: </u>Offer tools for parking space owners to manage their listings, view bookings, and communicate with renters.</p>
+<p class="main-points"><strong>8.</strong> <u>Customer Support: </u>Offer responsive customer support channels such as live chat, email, or phone support to assist users with any inquiries or issues they may encounter.</p>
+</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+    <img src="https://images.unsplash.com/photo-1470224114660-3f6686c562eb?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="Urban Park Ease Image">
+      </div>
+    </div>
+    <hr class="featurette-divider" id="ContactUs">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Developers profiles <span class="text-muted">LINK</span></h2>
+        <p>
+          <a href="http://localhost:3000/">Visit Pravinsing profile</a><br>
+          <a href="http://localhost:3000/">Visit Rohit profile</a><br>
+          <a href="https://www.instagram.com/rutwick5715?igsh=emJrbzFsZWg3Mjlj">Visit Rutwick profile</a><br>
+          <a href="http://localhost:3000/">Visit Shivpratap profile</a><br>
+          <a href="http://localhost:3000/">Visit Shubham profile</a><br>
+        </p>
+     
+      </div>
+	  
+	  <div>
+	  
+<div class="container">
+  <div class="row featurette" id="ContactUs">
+    <div class="col-md-12">
+      <h2 class="featurette-heading">Contact Us <span class="text-muted"> <br> Get in touch with our team</span></h2>
+    </div>
+  </div>
+
+  <!-- Contact List -->
+  <div class="contact-list">
+    <!-- Person 1 -->
+    <div class="contact-card">
+      <div class="contact-avatar">
+         <img th:src="@{/images/shubham123.jpg}" alt="Example Image" width="450px" height="500px">
+      </div>
+      <div class="contact-info">
+        <p><strong>Name:</strong> Shubham Ajit Hirve</p>
+        <p><strong>Email:</strong> shubham.hirve@gmail.com</p>
+        <p><strong>Contact no:</strong> +91 8983245600 </p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/shubham_hirve_?igsh=b2JoYmx1eDF6dmRl" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/shubham-hirve?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkdIn</a>
+      </div>
+    </div>
+
+    <!-- Person 2 -->
+    <div class="contact-card">
+      <div class="contact-avatar">
+        <img th:src="@{/images/Rutwick.jpg}" alt="Example Image" width="450px" height="500px">
+      </div>
+      <div class="contact-info">
+        <p><strong>Name:</strong> Rutwick Pramodrao Thakare </p>
+        <p><strong>Email:</strong> rutwickthakare@gmail.com </p>
+        <p><strong>Contact no:</strong> 91684 95932</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/rutwick5715?igsh=emJrbzFsZWg3Mjlj" target="_blank">Instagram</a>
+      </div>
+    </div>
+
+    <!-- Person 3 -->
+    <div class="contact-card">
+      <div class="contact-avatar">
+          <img th:src="@{/images/shivpratap.jpg}" alt="Example Image" width="450px" height="500px">
+      </div>
+      <div class="contact-info">
+        <p><strong>Name:</strong> Shivpratap Singh Chauhan </p>
+        <p><strong>Email:</strong> shivpratap0596@gmail.com </p>
+        <p><strong>Contact no:</strong> 9720310596 </p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/shiv.singh.96?igsh=MTloa2E5ZzdyZ2gxdA" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/shivpratap-singh-3682bb267?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkdIn</a>
+   
+      </div>
+    </div>
+
+    <!-- Person 4 -->
+    <div class="contact-card">
+      <div class="contact-avatar">
+       <img th:src="@{/images/rohit.jpg}" alt="Example Image" width="450px" height="500px">
+      </div>
+      <div class="contact-info">
+        <p><strong>Name:</strong> Rohit Gaharwar </p>
+        <p><strong>Email:</strong> rohitgaharwar3@gmail.com </p>
+        <p><strong>Contact no:</strong> 7599471215</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/rgaharwar?igsh=MXBheG0zdXBtNDByeg== " target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/rohit-gaharwar-8532a8198?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin</a>
+      </div>
+    </div>
+
+    <!-- Person 5 -->
+	<div class="contact-card">
+      <div class="contact-avatar">
+        <img th:src="@{/images/praveen.jpg}" alt="Example Image" width="450px" height="500px">
+      </div>
+      <div class="contact-info">
+        <p><strong>Name:</strong> Praveen Singh Chouhan </p>
+        <p><strong>Email:</strong> praveensinghchauhancdac2024@gmail.com </p>
+        <p><strong>Contact no:</strong> +91 8957187318</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/jayingh.chauhan" target="_blank">Facebook</a>
+		<a href="https://www.linkedin.com/in/praveen-singh-chauhan-73b949251/" target="_blank">LinkdIn</a>
+      </div>
+    </div>
+  </div>
+  <!-- End Contact List -->
+</div>
+
+	  </div>
+      <div class="col-md-5"></div>
+    </div>
+    <hr class="featurette-divider">
+    <!-- /END THE FEATURETTES -->
+  </div><!-- /.container -->
+  
+  <div class="text-center">
+    <hr class="featurette-divider">
+    <div class="row featurette" id="ContactUs">
+        <div class="col-md-7">
+            <h2 class="featurette-heading"> Any Queries <span class="text-muted"> and Share Your Feedback</span></h2>
+            <p class="lead"> For any inquiries, partnership opportunities, or feedback, feel free to reach out to us via the following channels:<br>
+            1. Email: contact@urbanparkease.com<br>
+            2. Phone: 8983245600<br>
+            3. Address: 786, Urban Park Avenue, Mumbai, Maharashtra, 400601 <br>
+            4. Social Media: Connect with us on Facebook, Twitter, and Instagram for news and updates.<br>
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src="https://cdn.pixabay.com/photo/2016/12/15/12/26/contact-us-1908763_1280.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="Urban Park Ease Image">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+</div>
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+setInterval(() => {
+  var hours = new Date().getHours() % 12; 
+  var minutes = new Date().getMinutes();
+  var seconds = new Date().getSeconds() < 10 ? `0${new Date().getSeconds()}` : new Date().getSeconds();
+  var c;
+  
+  if (new Date().getHours() < 12) {
+    c = '<span>AM</span>';
+  } else {
+    c = '<span>PM</span>';
+  }
+  var tHtml = `<span>${hours}:</span><span>${minutes}:</span><span>${seconds}</span>`;
+  console.log(tHtml);
+  document.getElementById('c-time').innerHTML = tHtml + ' ' + c; 
+}, 1000);
+</script>
+
+
+
+</body>
+
+
+
+</html>
